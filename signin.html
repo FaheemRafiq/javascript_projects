@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Responsive Flexbox</title>
+    <!-- <link rel="stylesheet" href="/public/style.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: serif;
+        }
+
+        .container {
+            background-color: rgb(133, 215, 243);
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            overflow: hidden;
+            box-shadow: 10px 10px 10px 20px rgb(56, 56, 68);
+        }
+
+        .container>img {
+            width: 440px;
+        }
+
+        body {
+            position: absolute;
+            background-color: rgb(249, 249, 249);
+            height: 100%;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flex {
+            display: flex;
+        }
+        h1{
+            color: rgb(255, 255, 255);
+            font-weight: 200;
+            text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+            
+        }
+        .container > div{
+            padding-top: 50px;
+            flex-direction: column;
+            
+        }
+        .flex > h1{
+            align-self: center;
+            font-weight: bolder;
+        }
+        #btn{
+            background-color: rgb(22, 118, 203);
+            padding: 7px 10px;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: large;
+            align-self: center;
+            margin-top: 10px;
+        }
+        #btn:hover{
+            background-color: rgb(21, 197, 144);
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+        #name_div , #password_div{
+            margin: 7px;
+        }
+
+        #name_div , #password_div > label {
+            color: rgb(255, 255, 255);
+            font: 100;
+            font-size: large;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+        }
+        #username , #password{
+            width: 300px;
+            padding: 7px;
+            border-radius: 7px;
+        }
+    </style>
+</head>
+
+<body class="flex">
+
+    <div class="container flex">
+        <img src="../src/Huzaifa.jpg" alt="Huzaifa">
+        <div class="flex">
+            <h1>Sign In</h1>
+            <form action="#">
+                <div id="name_div">
+                    <label for="username">Username</label><br>
+                    <input type="text" name="username" id="username" placeholder="@username">
+                </div>
+                <div id="password_div">
+                    <label for="password">Password</label><br>
+                    <input type="password" name="password" id="password" placeholder="Password">
+                </div>
+                <button id="btn" type="submit">submit</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
