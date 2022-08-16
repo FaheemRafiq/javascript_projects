@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #box {
+            height: 400px;
+            width: 800px;
+        }
+
+        h1 {
+            text-shadow: 5px 4px 4px rgb(141, 141, 181), 5px 5px 20px rgb(255, 25, 0);
+            color: rgb(6, 209, 255);
+        }
+
+        #box {
+            border-radius: 100px 5px;
+            box-shadow: 10px 10px 300px rgb(51, 218, 255);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-black">
+    <div id="box" class="bg-white text-black border-2 flex flex-col items-center pt-10 border-white">
+        <h1 class="text-8xl font-bold font-serif ">StopWatch</h1>
+        <h2 id="text-display" class="text-7xl mt-5 font-extrabold text-blue-500">00 : 00 : 00</h2>
+        <div id="btn-box" class="mt-5">
+            <button id="start"
+                class="text-4xl font-bold bg-blue-400 hover:bg-green-300 p-2 rounded-md ml-2 font-mono ">Start</button>
+            <button id="reset"
+                class="text-4xl font-bold bg-blue-400 hover:bg-green-300 p-2 rounded-md ml-2 font-mono ">Reset</button>
+            <button id="stop"
+                class="text-4xl font-bold bg-blue-400 hover:bg-green-300 p-2 rounded-md ml-2 font-mono ">Stop</button>
+        </div>
+    </div>
+
+    <script>
+        var start = document.querySelector('#start');
+        var reset = document.querySelector('#reset');
+        var stop = document.querySelector('#stop');
+        var display = document.querySelector('#text-display');
+        var h = "00", m = "00", s = "00";
+        var interval;
+        start.addEventListener('click', () => {
+            interval = setInterval(() => {
+                s++;
+                if (s < 10) {
+                    s = "0" + s;
+                }
+                if (s == 60) {
+                    s = 00;
+                    m++;
+                    if (m < 10) {
+                        m = "0" + m;
+                    }
+                    if (m == 60) {
+                        m = 00;
+                        h++;
+                        if(h < 10){
+                            h = "0" + h;
+                        }
+                    }
+                }
+                display.innerHTML = `${h} : ${m} : ${s}`;
+            }, 1000);
+        });
+
+        stop.addEventListener('click',()=>{
+            clearInterval(interval);
+        });
+        reset.addEventListener('click' , ()=>{
+            clearInterval(interval);
+            h = "00";
+            m = "00";
+            s = "00";
+            display.innerHTML = `${h} : ${m} : ${s}`;
+        });
+
+    </script>
+</body>
+
+</html>
