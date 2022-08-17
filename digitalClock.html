@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        h1 {
+            text-shadow: 5px 5px 10px rgb(0, 230, 35), 5px 5px 15px rgb(0, 200, 255), 5px 5px 100px rgb(238, 255, 0);
+            color: white;
+            font-family: Times;
+        }
+
+        body {
+            background-color: rgb(46, 53, 53);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HTML -->
+    <div class="container">
+        <div id="clock" class="text-center mt-72 text-9xl font-bold">
+            <h1 id="display" class="drop-shadow-xl">Text</h1>
+        </div>
+    </div>
+
+    <!-- javaScript Portion -->
+
+    <script>
+        window.setInterval(() => {
+            var ap;
+            let date = new Date();
+            let h = date.getHours();
+            let m = date.getMinutes();
+            let s = date.getSeconds();
+            // let p = date.
+            var session = "AM";
+            if (h == 0) {
+                h = 12;
+            }
+            if (h > 12) {
+                h = h - 12;
+                session = "PM";
+            }
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+            var time = `${h} : ${m} : ${s} ${session}`;
+            var display = document.querySelector('#display');
+            display.innerHTML = time;
+
+
+        }, 100);
+    </script>
+
+</body>
+
+</html>
